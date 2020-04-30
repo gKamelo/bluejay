@@ -127,6 +127,11 @@ class Queue {
             }
         }
 
+        if !queue.isEmpty {
+            debugLog("Removing all finished operations from queue")
+            queue.removeAll { $0.state.isFinished }
+        }
+
         if isCBCentralManagerReady {
             precondition(queue.isEmpty, "Queue is active and is not emptied at the end of cancel all.")
         } else {
