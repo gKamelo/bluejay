@@ -55,7 +55,8 @@ class DiscoverCharacteristic: Operation {
                 success()
             }
         } else {
-            precondition(false, "Unexpected event response: \(event)")
+            debugLog("Bluejay normally would CRASH!")
+            debugLog("Unexpected event response: \(event)")
         }
     }
 

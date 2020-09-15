@@ -195,7 +195,10 @@ class Peripheral: NSObject {
                             switch result {
                             case .success:
                                 guard let cachedListener = weakSelf.listeners[characteristicIdentifier] else {
-                                    fatalError("Installed a listen on characteristic \(characteristicIdentifier.description) but it is not cached.")
+                                    debugLog("Bluejay normally would CRASH!")
+                                    debugLog("Installed a listen on characteristic \(characteristicIdentifier.description) but it is not cached.")
+                                    return
+
                                 }
 
                                 let originalMultipleListenOption = cachedListener.1
